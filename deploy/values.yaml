@@ -1,0 +1,33 @@
+concourse:
+  web:
+    clusterName: Concourse Demo
+    externalUrl: https://concourse-demo.gcp.halusky.de
+    auth:
+      mainTeam:
+        localUser: "demo"
+    kubernetes:
+      keepNamespaces: false
+web:
+  replicas: 2
+  service:
+    type: NodePort
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: 34.107.163.31
+    hosts:
+      - concourse-demo.gcp.halusky.de 
+    tls:
+    - hosts:
+      - concourse-demo.gcp.halusky.de
+      secretName: concourse-demo
+
+
+worker:
+  replicas: 2
+persistence:
+  enabled: true
+  worker:
+    size: "100Gi"
+secrets:
+  localUsers: "demo:demo"

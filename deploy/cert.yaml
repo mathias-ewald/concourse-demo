@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: concourse-demo
+spec:
+  secretName: concourse-demo
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: "concourse-demo.gcp.halusky.de"
+  dnsNames:
+  - "concourse-demo.gcp.halusky.de"
