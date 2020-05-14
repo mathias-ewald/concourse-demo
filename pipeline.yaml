@@ -6,7 +6,7 @@ resources:
     uri: https://github.com/mathias-ewald/hello-goose
     branch: master
 
-- name: tasks
+- name: demo
   type: git
   source:
     uri: https://github.com/mathias-ewald/concourse-demo
@@ -17,4 +17,6 @@ jobs:
   plan:
   - in_parallel:
     - get: code
-    - get: tasks 
+    - get: demo
+  - task: maven-package
+    file: demo/tasks/maven-package/task.yml
