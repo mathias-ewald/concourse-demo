@@ -7,7 +7,7 @@ PROJECT_PATH="$PROJECT_PATH"
 JAR_DIR="jar"
 
 cd $BASE_DIR/$PROJECT/$PROJECT_PATH 
-maven clean package
+mvn clean package
 cd $BASE_DIR
 
 JAR_FILE="$(ls $BASE_DIR/$PROJECT/$PROJECT_PATH/target/*.jar)"
