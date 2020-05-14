@@ -20,3 +20,5 @@ jobs:
     - get: demo
   - task: maven-package
     file: demo/tasks/maven-package/task.yml
+    params:
+      PROJECT_PATH: spring-boot
