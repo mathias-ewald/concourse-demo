@@ -1,0 +1,15 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: maven
+    tag: 3-jdk-12
+inputs:
+  - name: code
+outputs:
+  - name: jar
+params:
+  PROJECT_PATH:
+run:
+  path: demo/tasks/maven-package/task.sh
